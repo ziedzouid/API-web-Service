@@ -1,0 +1,28 @@
+coolvoiturage_api_homepage:
+    path:     /
+    defaults: { _controller: CoolvoiturageApiBundle:Default:index }
+
+
+find_user:
+    path:     /user/find/{email}
+    defaults: { _controller: CoolvoiturageApiBundle:User:getloginUser}
+
+new_user:
+    path:     /user/new
+    defaults: { _controller: CoolvoiturageApiBundle:User:newUser}
+
+all:
+    path:     /user/all
+    defaults: { _controller: CoolvoiturageApiBundle:User:all }
+
+edit_user:
+    path:     /user/edit
+    defaults: { _controller: CoolvoiturageApiBundle:User:editUser }
+
+edit_user_mdp:
+    path:     /user/editpass
+    defaults: { _controller: CoolvoiturageApiBundle:User:editUserMdp }
+
+disable_acc:
+    path:     /user/disableAcc
+    defaults: { _controller: CoolvoiturageApiBundle:User:disableAcc }

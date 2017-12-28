@@ -1,0 +1,7 @@
+coolvoiturage_api:
+    resource: "@CoolvoiturageApiBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

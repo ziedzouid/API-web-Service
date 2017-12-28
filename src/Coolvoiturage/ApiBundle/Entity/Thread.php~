@@ -1,0 +1,57 @@
+<?php
+
+namespace Coolvoiturage\ApiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Thread
+ *
+ * @ORM\Table(name="thread", indexes={@ORM\Index(name="IDX_31204C83B03A8386", columns={"created_by_id"})})
+ * @ORM\Entity
+ */
+class Thread
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="subject", type="string", length=255, nullable=false)
+     */
+    private $subject;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="created_at", type="datetime", nullable=false)
+     */
+    private $createdAt;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_spam", type="boolean", nullable=false)
+     */
+    private $isSpam;
+
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="created_by_id", referencedColumnName="id")
+     * })
+     */
+    private $createdBy;
+
+
+}
+

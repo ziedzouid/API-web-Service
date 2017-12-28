@@ -1,0 +1,67 @@
+<?php
+
+namespace Coolvoiturage\ApiBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ThreadMetadata
+ *
+ * @ORM\Table(name="thread_metadata", indexes={@ORM\Index(name="IDX_40A577C8E2904019", columns={"thread_id"}), @ORM\Index(name="IDX_40A577C89D1C3019", columns={"participant_id"})})
+ * @ORM\Entity
+ */
+class ThreadMetadata
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="is_deleted", type="boolean", nullable=false)
+     */
+    private $isDeleted;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_participant_message_date", type="datetime", nullable=true)
+     */
+    private $lastParticipantMessageDate;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="last_message_date", type="datetime", nullable=true)
+     */
+    private $lastMessageDate;
+
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="participant_id", referencedColumnName="id")
+     * })
+     */
+    private $participant;
+
+    /**
+     * @var \Thread
+     *
+     * @ORM\ManyToOne(targetEntity="Thread")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="thread_id", referencedColumnName="id")
+     * })
+     */
+    private $thread;
+
+
+}
+
